@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 根标签是 layout, 将根布局的命名空间都拷贝到根标签中 -->
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- data 标签中设置要绑定的对象名称 和 对应的类名 -->
+    <data>
+        <variable name="student" type="kim.hsl.db.Student"/>
+    </data>
+
+    <!-- 实际的布局, 被改造前是根标签 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/hello"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{"姓名 : " + student.name + " 年龄 : " + student.age}'
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
